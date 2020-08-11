@@ -19,11 +19,7 @@ class Counter extends Component {
     );
   }
 
-  // handleClick = (hola) =>{
-  //     console.log('Message is ');
-  //     console.log(hola);
-  //     this.setState({count : this.state.count + 1});
-  // }
+
 
     getBadgeClasses() {
         let classes = 'badge m-2 ';
