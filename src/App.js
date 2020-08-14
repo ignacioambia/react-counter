@@ -17,44 +17,47 @@ class App extends Component {
  }
 
   deleteElement = id =>{
-      // const counters = this.state.counters.filter(c=>c.id !== id);
-      // this.setState({counters});
-      console.log('Delete element');
+      console.log('ADIOS');
+      console.log(id)
+      const counters = this.state.counters.filter(c=>c.id !== id);
+      this.setState({counters});
   }
 
   incrementElement = counter =>{
-      // console.log('HOLA');
-      // const counters = [...this.state.counters]
-      // const index = this.state.counters.indexOf(counter);
-      // counters[index] = {...counter};
-      // counters[index].count ++;
+      console.log('HOLA' );
+      console.log(counter)
+      const counters = [...this.state.counters]
+      const index = this.state.counters.indexOf(counter);
+      counters[index] = {...counter};
+      counters[index].count ++;
 
-      // this.setState({counters});
-      console.log('Increment counters')
+      this.setState({counters});
 
   }
 
   resetCounters = ()=>{
-      // const counters = this.state.counters.map(c=> {
-      //     c.count = 0
-      //     return c;
-      // });
-      // console.log(counters);
-      // this.setState({counters});
-      console.log('Reset counters');
+      const counters = this.state.counters.map(c=> {
+          c.count = 0
+          return c;
+      });
+      console.log(counters);
+      this.setState({counters});
   }
 
   render() {
     return (
-    <React.StrictMode>
+    <React.Fragment>
       <NavBar/>
-      <Counters
-        counters={this.state.counters}
-        onReset={this.resetCounters}
-        onDelete={()=>this.deleteElement()}
-        onIncrement={()=>this.incrementElement()}
-      />
-    </React.StrictMode>
+      <main className="container">
+        <Counters
+          counters={this.state.counters}
+          onReset={this.resetCounters}
+          onDelete={()=>this.deleteElement}
+          onIncrement={this.incrementElement}
+        />
+      </main>
+
+    </React.Fragment>
     )
   }
 
